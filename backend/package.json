@@ -1,0 +1,24 @@
+{
+    "name": "planiumtest",
+    "version": "1.0.0",
+    "description": "<img src=\"https://www.planium.io/wordpress/wp-content/uploads/2018/11/logo-Planium-06.svg\" width=\"250\" height=\"100\">\r **[Especificações para o teste]**",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon ./src/server.js",
+        "dev": "nodemon ./src/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/IsaacDSC/PlaniumTest.git"
+    },
+    "keywords": [
+        "planium"
+    ],
+    "author": "IsaacDSC",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/IsaacDSC/PlaniumTest/issues"
+    },
+    "homepage": "https://github.com/IsaacDSC/PlaniumTest#readme"
+}
