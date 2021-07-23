@@ -15,14 +15,14 @@ class PlansModel {
 
         switch (PricePlans) {
             case track_one:
-                const PriceValue = PricePlans.find(code => code.codigo === CodePlan && code.faixa1 && code.minimo_vidas == NumberDependeces) // search value to plan
-                return (PriceValue)
+                let PriceValueOne = PricePlans.find(code => code.codigo === CodePlan && code.faixa1 && code.minimo_vidas == NumberDependeces) // search value to plan
+                return (PriceValueOne)
             case track_tow:
-                const PriceValue = PricePlans.find(code => code.codigo === CodePlan && code.faixa2 && code.minimo_vidas == NumberDependeces) // search value to plan
-                return (PriceValue)
+                let PriceValueTow = PricePlans.find(code => code.codigo === CodePlan && code.faixa2 && code.minimo_vidas == NumberDependeces) // search value to plan
+                return (PriceValueTow)
             case track_three:
-                const PriceValue = PricePlans.find(code => code.codigo === CodePlan && code.faixa3 && code.minimo_vidas == NumberDependeces) // search value to plan
-                return (PriceValue)
+                let PriceValueThree = PricePlans.find(code => code.codigo === CodePlan && code.faixa3 && code.minimo_vidas == NumberDependeces) // search value to plan
+                return (PriceValueThree)
             default:
                 return 'Preencha os campos corretamente e tente novamente!'
         }

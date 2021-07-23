@@ -1,9 +1,13 @@
 const express = require('express')
-const path = require('path')
+const router = require('../routes/routes')
 
 class App {
     constructor() {
         this.express = express()
+        this.routes()
+    }
+    routes() {
+        this.express.use(router)
     }
 }
 

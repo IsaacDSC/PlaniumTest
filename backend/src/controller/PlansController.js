@@ -16,4 +16,4 @@ class PlansController {
 }
 
 
-module.export = new PlansController
+module.exports = new PlansController
