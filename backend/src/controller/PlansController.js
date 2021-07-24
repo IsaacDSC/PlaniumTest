@@ -12,10 +12,12 @@ class PlansController {
     }
 
     async registerProposal(req, res) {
+        const data = JSON.stringify(req.body)
+        console.log(data)
         console.log(req.body)
             /*   let DATA = []
               DATA.push({ nome: 'IsaacDSC', idade: 19, codigo: 1, minimo_vidas: 1, value: 80 }) */
-        return res.status(200).send(req.body)
+        return res.status(200).send(data)
     }
 
 

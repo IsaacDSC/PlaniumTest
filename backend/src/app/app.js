@@ -6,9 +6,9 @@ const { json } = require('express')
 class App {
     constructor() {
         this.express = express()
-        this.routes()
-        this.cors()
         this.middlewares()
+        this.cors()
+        this.routes()
     }
     routes() {
         this.express.use(router)

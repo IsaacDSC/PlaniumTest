@@ -18,27 +18,31 @@
                                     <h5 class="modal-title">{{json_encode($plan['nome'])}}</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
-                                    <div class="container">
-                                        <h5 class="text-center">Formulário</h5>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col">
-                                                <label for="">Informe sua Idade</label>
-                                                <input type="number" name="" id="" class="form-control">
-                                            </div>
-                                            <div class="col">
-                                                <label for="">Numero de Dependentes</label>
-                                                <input type="number" name="" id="" class="form-control">
+                                <form action="{{url('/price/plan')}}" method="POST">
+                                @csrf
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <h5 class="text-center">Formulário</h5>
+                                            <hr>
+                                            <div class="row">
+                                                <input type="hidden" name="codigo" value="{{json_encode($plan['codigo'])}}">
+                                                <div class="col">
+                                                    <label for="">Informe sua Idade</label>
+                                                    <input type="number" name="idade" id="" class="form-control">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="">Numero de Dependentes</label>
+                                                    <input type="number" name="dependentes" id="" class="form-control">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="container">
-                                        <button type="button" onclick="verifyValue(`{{json_encode($plan['codigo'])}}`)" class="btn btn-primary col-12">Verificar valor</button>
+                                    <div class="modal-footer">
+                                        <div class="container">
+                                            <button type="submit" class="btn btn-primary col-12">Verificar valor</button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -66,23 +70,5 @@
         </div>
     </div>
 </div>
-<script>
-    function verifyValue(value) {
-        alert(value)
 
-        var myHeaders = new Headers();
-
-        var myInit = {
-            method: 'POST',
-            headers: myHeaders,
-            mode: 'cors',
-            body: JSON.stringify({id: value})
-        };
-
-        fetch('http://127.0.0.1:3333/plan/register', myInit)
-            .then(function(response) {
-                return response.blob();
-            }).catch((err)=> console.log(err))
-    }
-</script>
 @endsection
