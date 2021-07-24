@@ -1,0 +1,40 @@
+#background {
+    position: absolute;
+    top: 0;
+    font-size: 99009;
+}
+
+#PLANS {
+    background-color: rgba(0, 0, 0, 0.76);
+}
+
+h2 {
+    margin-top: 15px;
+    font-size: 54px;
+    font-weight: 990;
+    font-family: sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.HR {
+    color: white;
+}
+
+#TITLE {
+    background-color: rgb(173, 33, 9);
+    border-radius: 5px;
+}
+
+button {
+    border-radius: 0%;
+}
+
+footer .card {
+    background-color: rgba(0, 0, 0, 0.76);
+    color: white;
+    min-height: 200px;
+}
+
+#cardModal {
+    border-color: rgba(0, 0, 0, 0.493);
+}
