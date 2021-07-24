@@ -1,18 +1,30 @@
 const fs = require('fs');
-const Configurations = require('../config/Configurations');
+const Configurations = require('../config/Configurations')
 
 class ReadWrite {
-    async read(database) {
-        if (database == 'plans') {
-            let plans = await fs.readFileSync(Configurations.params().folder_plans, "utf8");
-            return plans
-        }
-        if (database == 'prices') {
-            let prices = await fs.readFileSync(Configurations.params().folder_prices, "utf8");
-            return prices
+    async read(PathDatabase) {
+        try {
+            let GetDatas = await fs.readFileSync(PathDatabase, "utf8")
+            return GetDatas
+        } catch (error) {
+            return error
         }
     }
-    async write() {}
+    async write(Content, Database) {
+        try {
+            if (Database != 'propostas') {
+                return 'Você não tem permissão para escrever em outro arquivo'
+            } else {
+                const ContentData = readFile(Database)
+                ContentData.push(Content)
+                fs.writeFileSync(Configurations.params().folder_propotas, JSON.stringify(ContentData), 'utf-8')
+                return true
+            }
+        } catch (error) {
+            return error
+        }
+
+    }
 }
 
 module.exports = new ReadWrite

@@ -20,5 +20,9 @@
     "bugs": {
         "url": "https://github.com/IsaacDSC/PlaniumTest/issues"
     },
-    "homepage": "https://github.com/IsaacDSC/PlaniumTest#readme"
+    "homepage": "https://github.com/IsaacDSC/PlaniumTest#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1"
+    }
 }
