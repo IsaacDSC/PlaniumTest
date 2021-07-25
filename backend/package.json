@@ -1,7 +1,7 @@
 {
     "name": "planiumtest",
     "version": "1.0.0",
-    "description": "<img src=\"https://www.planium.io/wordpress/wp-content/uploads/2018/11/logo-Planium-06.svg\" width=\"250\" height=\"100\">\r **[Especificações para o teste]**",
+    "description": "Homologation",
     "main": "server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",

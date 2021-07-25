@@ -19,21 +19,30 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <form action="{{url('/price/plan')}}" method="POST">
-                                @csrf
+                                    @csrf
                                     <div class="modal-body">
                                         <div class="container">
                                             <h5 class="text-center">Formulário</h5>
                                             <hr>
                                             <div class="row">
-                                                <input type="hidden" name="codigo" value="{{json_encode($plan['codigo'])}}">
                                                 <div class="col">
-                                                    <label for="">Informe sua Idade</label>
-                                                    <input type="number" name="idade" id="" class="form-control">
+                                                    <label for="">Nome do titular</label>
+                                                    <input type="text" name="nome" id="" class="form-control">
                                                 </div>
+                                            </div>
+                                            <div class="row">
+                                                <input type="hidden" name="codigo" value="{{json_encode($plan['codigo'])}}">                                            
                                                 <div class="col">
                                                     <label for="">Numero de Dependentes</label>
-                                                    <input type="number" name="dependentes" id="" class="form-control">
+                                                    <input type="number" name="dependentes" onchange="dependents(this)" id="dependentes" class="form-control">
                                                 </div>
+                                                <div class="col">
+                                                    <label for="">Idade do Titular</label>
+                                                    <input type="number" name="idade" id="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="row" id="interface_dependents">
+                                                <!-- this code js injection inputs dependetes -->
                                             </div>
                                         </div>
                                     </div>
@@ -70,5 +79,19 @@
         </div>
     </div>
 </div>
+<script>
+    async function dependents(data) {
+        const interface_dependents = document.querySelector('#interface_dependents')
+        let dependents = document.querySelector('#dependents')        
+        for (i = 1; i <= data.value; i++) {            
+            interface_dependents.innerHTML += `
+            <div class="col-12">
+                <label for="">Nome do dependente</label>
+                <input type="text" name="dependente_${i}" class="form-control">
+            </div>                                    
+            `
+        }
+    }
+</script>
 
 @endsection

@@ -16,3 +16,4 @@ use App\Http\Controllers\PlansController;
 
 Route::get('/', [PlansController::class, 'index']);
 Route::post('/price/plan', [PlansController::class, 'search']);
+Route::get('/price/plan', [PlansController::class, 'choicePlan']);

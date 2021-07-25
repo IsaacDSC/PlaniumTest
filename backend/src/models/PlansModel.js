@@ -34,43 +34,26 @@ class PlansModel {
 
             switch (true) {
                 case track_one:
-                    let PriceValueOne = ''
-                    PRICES.forEach(element => { // search value to plan
-                        if (element.codigo === CodePlan && element.minimo_vidas == NumberDependeces && element.faixa1) {
-                            console.log(element.codigo)
-                            let response = { codigo: element.codigo, minimo_vidas: element.minimo_vidas, faixa: element.faixa1 }
-                            PriceValueOne = response
-                        }
-                        if (element.codigo > 6) {
-                            PriceValueOne = { error: 'Opção Inválida' }
-                        }
-                    })
-                    return PriceValueOne
-                case track_tow:
-                    let PriceValueTow = ''
-                    PRICES.forEach(element => { // search value to plan
-                        if (element.codigo === CodePlan && element.minimo_vidas == NumberDependeces && element.faixa2) {
-                            let response = { codigo: element.codigo, minimo_vidas: element.minimo_vidas, faixa: element.faixa2 }
-                            PriceValueTow = response
-                        }
-                        if (element.codigo > 6) {
-                            PriceValueTow = { error: 'Opção Inválida' }
-                        }
-                    })
 
-                    return PriceValueTow
+                    if (CodePlan > 6) return 'Código inválido' // check if injection code true or false                         
+                    let PriceValueOne = PRICES.filter((data, index, array) => data.codigo === CodePlan && data.minimo_vidas == NumberDependeces && data.faixa1)
+                    if (PriceValueOne.length > 0) return PriceValueOne
+                    if (!PriceValueOne <= 0) return PRICES
+
+                case track_tow:
+
+                    if (CodePlan > 6) return 'Código inválido' // check if injection code true or false                         
+                    let PriceValueTow = PRICES.filter((data, index, array) => data.codigo === CodePlan && data.minimo_vidas == NumberDependeces && data.faixa2)
+                    if (PriceValueTow.length > 0) return PriceValueTow
+                    if (!PriceValueTow <= 0) return PRICES
+
                 case track_three:
-                    let PriceValueThree = ''
-                    PRICES.forEach(element => { // search value to plan
-                        if (element.codigo === CodePlan && element.minimo_vidas == NumberDependeces && element.faixa3) {
-                            let response = { codigo: element.codigo, minimo_vidas: element.minimo_vidas, faixa: element.faixa3 }
-                            PriceValueThree = response
-                        }
-                        if (element.codigo > 6) {
-                            PriceValueThree = { error: 'Opção Inválida' }
-                        }
-                    })
-                    return PriceValueThree
+
+                    if (CodePlan > 6) return 'Código inválido' // check if injection code true or false                         
+                    let PriceValueThree = PRICES.filter((data, index, array) => data.codigo === CodePlan && data.minimo_vidas == NumberDependeces && data.faixa3)
+                    if (PriceValueThree.length > 0) return PriceValueThree
+                    if (!PriceValueThree <= 0) return PRICES
+
                 default:
                     return 'Preencha os campos corretamente e tente novamente!'
             }

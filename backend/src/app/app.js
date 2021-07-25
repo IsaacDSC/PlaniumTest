@@ -1,7 +1,6 @@
 const express = require('express')
 const router = require('../routes/routes')
 const cors = require('cors')
-const { json } = require('express')
 
 class App {
     constructor() {
