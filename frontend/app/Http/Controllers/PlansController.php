@@ -10,8 +10,9 @@ function saveDatabase ($data){
     $database = fopen(__DIR__.'../../../../database'.'database.json','w');
     fwrite($database,$data);
     fclose($database);
-    #$save = saveDatabase(json_encode(['as'=>'']);
-
+}
+function ReadDatabase (){
+    $database = fopen(__DIR__.'../../../../database'.'database.json','w');
 }
 $GLOBALS['baseAPI'] = 'http://127.0.0.1:3333';
 
@@ -31,9 +32,10 @@ class PlansController extends Controller
         if ($response->ok()) {
             $checkToken = $request->_token == $acess['_token'];
             if ($checkToken && $acess['prices'][0]) {
+                saveDatabase(json_encode(['as'=>$acess['prices'][0]]));
                 return redirect('/price/plan');
             } else {
-                return 'Você não pode injetar código aqui estou deletando os dados salvos';
+                return 'Esta aplicação não permitirá injeção de código';
             }
         } else {
             return 'ERROR:BackEnd - Houve um problema, tente novamente mais tarde';
@@ -42,10 +44,14 @@ class PlansController extends Controller
 
 
     public function choicePlan(){    
-        $choices = Http::get($GLOBALS['baseAPI'].'/choices/disponibles')->body();
-        $choices_obj = json_decode($choices, true); 
-        /* echo($choices);  
-        return $choices_obj; */
-        return view('choicePlan', ['choices'=>$choices]);
+        $response = Http::get($GLOBALS['baseAPI'].'/choices/disponibles')->body();
+        $testes = json_decode($response, true);
+        echo(gettype($testes));
+        echo $testes['array'];
+        //  return $testes;
+        /* $choices_obj = json_encode($choices, true); 
+         echo(gettype($choices_obj));  */ 
+        //return $choices_obj; */
+        //return view('choicePlan', ['choices'=>$choices_obj]);
     }
 }

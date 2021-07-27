@@ -24,8 +24,10 @@ class PlansController {
     }
 
     async ChoicesDisponibles(req, res) {
-        DATA.pop()
-        return res.status(200).json({ DATA })
+        /*  DATA.pop()
+         console.log(DATA) */
+        console.log(DATA[0])
+        return res.status(200).json(DATA[0])
     }
 
 

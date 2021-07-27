@@ -14,7 +14,9 @@
             <div class="row">
                 <div class="col">
                     <!-- -->
-                    {{$choices}}
+                    @foreach($choices as $choice)
+                    {{json_encode($choice['price'])}}
+                    @endforeach
                 </div>
             </div>
         </form>
